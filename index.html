@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense & Budget Visualizer</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>💰 Expense Tracker</h1>
+      <p id="totalBalance">Total: Rp 0</p>
+      <p id="limitWarning" class="hidden">⚠️ Pengeluaran melebihi limit Rp 1.000.000!</p>
+    </div>
+    <button id="themeToggle">🌙 Dark</button>
+  </header>
+
+  <section class="card">
+    <h2>Add Transaction</h2>
+    <form id="expenseForm">
+      <input type="text" id="itemName" placeholder="Item Name" required>
+      <input type="number" id="amount" placeholder="Amount" min="1" required>
+      <div class="row">
+        <select id="category" required>
+          <option value="Food">Food</option>
+          <option value="Transport">Transport</option>
+          <option value="Fun">Fun</option>
+        </select>
+        <button type="button" id="addCategoryBtn">+ Category</button>
+      </div>
+      <button type="submit" class="primary">Add Expense</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <div class="list-header">
+      <h2>Transactions</h2>
+      <select id="sortBy">
+        <option value="newest">Newest</option>
+        <option value="amount-high">High to Low</option>
+        <option value="amount-low">Low to High</option>
+        <option value="category">Category</option>
+      </select>
+    </div>
+    <div id="transactionList" class="transaction-list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Spending Chart</h2>
+    <canvas id="expenseChart"></canvas>
+  </section>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
